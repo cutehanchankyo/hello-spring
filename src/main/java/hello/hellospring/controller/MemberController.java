@@ -7,10 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
 @Controller
+@RequestMapping("/members")
 public class MemberController {
 
     private final MemberService memberService;
@@ -20,12 +22,12 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @GetMapping("/members/new")
+    @GetMapping("/new")
     public String creatForm(){
         return "members/createMemberForm";
     }
 
-    @PostMapping("/members/new")
+    @PostMapping("/new")
     public String create(MemberForm form){
         Member member = new Member();
         member.setName(form.getName());
@@ -37,7 +39,8 @@ public class MemberController {
         return "redirect:/";
     }
 
-    @GetMapping("/members")
+    @GetMapping
+
     public String list(Model model){
         List<Member> members = memberService.findMember();
         model.addAttribute("members", members);

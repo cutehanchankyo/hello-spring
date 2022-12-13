@@ -24,7 +24,7 @@ public class MemberController {
 
     @GetMapping("/new")
     public String creatForm(){
-        return "members/createMemberForm";
+        return "members/createMemberFo rm";
     }
 
     @PostMapping("/new")

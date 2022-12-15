@@ -8,3 +8,8 @@ spring :
     driver-class-name: org.h2.Driver
     username: sa
     password: 1234
+
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
